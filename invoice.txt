@@ -1,0 +1,12 @@
+INVOICE
+
+Invoice Number: INV-2026-2048
+Supplier: Limpopo Office Solutions (Pty) Ltd
+Invoice Date: 2026-08-05
+Customer: ABC Technologies
+Description: Laptops computers and accessories 
+Subtotal: R 12,000.00
+VAT: R 1,800.00
+Total Amount Due: R 13,800.00
+Currency: ZAR
+Payment Status: Unpaid

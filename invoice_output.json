@@ -1,0 +1,9 @@
+{
+  "invoice_number": "INV-2026-2048",
+  "supplier": "Limpopo Office Solutions (Pty) Ltd",
+  "invoice_date": "2026-08-05",
+  "customer": "ABC Technologies",
+  "total_amount": 13800.0,
+  "currency": "ZAR",
+  "payment_status": "unpaid"
+}

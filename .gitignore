@@ -1,0 +1,12 @@
+# API keys and environment variables
+.env
+.env.*
+
+# Python virtual environments
+.venv/
+.venv-*/
+.venv313/
+
+# Python cache files
+_pycache_/
+*.py[cod]
