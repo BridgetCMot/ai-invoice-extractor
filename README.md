@@ -1,20 +1,18 @@
-**AI-Powered Invoice Information Extractor**
+### **AI-Powered Invoice Information Extractor**
 
 
 
-**Project Overview**
+##### **Project Overview**
+
+#### 
+
+The system of manually processing invoices can be lengthy and tedious. This project examines how Generative AI can be used to automate the extraction of invoice details. The objective is to maintain a consistent, structured output format.
 
 
 
-The purpose of the present project is developing a program which will use Gemini AI API by Google to extract invoice document data in Python.
+The software will read invoice details from a text file, extract relevant information and validate the result using Pydantic and save it to a JSON file.
 
 
-
-The software will process invoice data, extract relevant information and validate the result using Pydantic and save it to a JSON file.
-
-
-
-API to extract structured information from invoice documents.
 
 
 
@@ -22,11 +20,15 @@ The application processes invoice text, extracts relevant information and valida
 
 
 
-**Features**
+###### **Features**
 
 
 
 Integration with Google's Gemini AI API.
+
+
+
+AI-powered information extraction using Google Gemini to identify important invoice details
 
 
 
@@ -50,37 +52,73 @@ External text-file input.
 
 
 
+Automated output generation.
+
+
+
 Automatic JSON output generation.
 
 
 
-**Technologies Used**
+API key security
 
 
 
-Python 3.13
+###### **Technologies Used**
+
+###### 
+
+Python 3.13 - Application development
 
 
 
-Google Gemini API
+Google Gemini API - AI-powered invoice information extraction
 
 
 
-Google GenAI Python SDK
+Google GenAI SDK - Communication with the Gemini API
 
 
 
-Pydantic
+Pydantic - Structured data modelling and validation
 
 
 
-JSON
+JSON - Structured output format
 
 
 
-**Information Extracted**
+Git and GitHub - Version control and project hosting
 
 
+
+###### **Processing Workflow**
+
+
+
+**Input:** The application reads invoice information from invoice.txt.
+
+
+
+**Prompt preparation:** The invoice content is inserted into a reusable prompt template.
+
+
+
+**AI processing:** Google Gemini analyses the invoice and extracts the required information.
+
+
+
+**Data validation:** Pydantic validates the response against the predefined InvoiceData model.
+
+
+
+**Output:** The validated information is converted into formatted JSON and saved to invoice\_output.json.
+
+
+
+###### **Information Extracted**
+
+##### 
 
 The application extracts the following invoice fields:
 
@@ -114,11 +152,89 @@ Payment status
 
 
 
-**Project Structure**
+**Example Output**
 
 
 
-datheon-task1/
+{
+
+&#x20; "invoice\_number": "INV-2026-2048",
+
+&#x20; "supplier": "Limpopo Office Solutions (Pty) Ltd",
+
+&#x20; "invoice\_date": "2026-08-05",
+
+&#x20; "customer": "ABC Technologies",
+
+&#x20; "total\_amount": 13800.0,
+
+&#x20; "currency": "ZAR",
+
+&#x20; "payment\_status": "unpaid"
+
+}
+
+
+
+###### **Project Architecture**
+
+
+
+The application follows a simple processing pipeline:
+
+
+
+Invoice Text File
+
+&#x20;      |
+
+&#x20;      v
+
+Read Invoice Content
+
+&#x20;      |
+
+&#x20;      v
+
+Parameterized Prompt Template
+
+&#x20;      |
+
+&#x20;      v
+
+Google Gemini API
+
+&#x20;      |
+
+&#x20;      v
+
+AI-Generated JSON Response
+
+&#x20;      |
+
+&#x20;      v
+
+Pydantic Validation
+
+&#x20;      |
+
+&#x20;      v
+
+Validated Invoice Data
+
+&#x20;      |
+
+&#x20;      v
+
+invoice\_output.json
+
+
+
+###### **Project Structure**
+
+
+
+ai-invoice-extractor/
 
 │
 
@@ -130,41 +246,63 @@ datheon-task1/
 
 ├── requirements.txt
 
-├── .gitignore
+├── README.md
 
-└── README.md
-
-
-
-**Installation**
+└── .gitignore
 
 
 
-Clone or download this repository.
+###### **Installation**
 
 
 
-Create and activate a Python virtual environment.
+1. **Clone the repository.**
+
+git clone https://github.com/BridgetCMot/ai-invoice-extractor.git
 
 
 
-Install the required dependencies:
+**2. Navigate to the project directory**
+
+cd ai-invoice-extractor
 
 
+
+**3. Create and activate a virtual environment**
+
+python -m venv .venv
+
+
+
+Windows Command Prompt:
+
+
+
+.venv\\Scripts\\activate
+
+
+
+**4. Install the required dependencies:**
 
 pip install -r requirements.txt
 
 
 
-Configure your Gemini API key as an environment variable.
+**5. Configure the Gemini API key and run the application**
+
+Obtain an API key through Google AI Studio.
 
 
 
-For Windows Command Prompt:
+Set the API key as an environment variable in Windows Command Prompt:
 
 
 
-set "GEMINI\_API\_KEY=your\_api\_key\_here"
+set "GEMINI\_API\_KEY=YOUR\_API\_KEY"
+
+
+
+Replace YOUR\_API\_KEY with your actual API key.
 
 
 
@@ -176,27 +314,121 @@ python main.py
 
 
 
-**Output**
+**Security note:** Never hardcode API keys in source code or commit them to GitHub.
 
 
 
-The application writes a validated JSON file named invoice\_output.json that contains the extracted invoice information.
+###### **Screenshots**
 
 
 
-**Data Validation**
+**1. Application Execution**
 
 
 
-Pydantic validates the structure and data types of the extracted information. This helps to ensure that the JSON file follows the expected schema.
+This screenshot shows the application running successfully and extracting invoice information using Google Gemini.
 
 
 
-**Project Purpose**
+**2. JSON Output**
 
 
 
-This project shows how Generative AI can be used in real-world situations. Furthermore, it demonstrates API integration, prompt engineering, structured data extraction and Python data validation. Each part helps build a system that handles information efficiently. The goal is to understand how these technologies work together in practice. It focuses on making sure the data is accurate and the results are reliable.
+This screenshot shows the structured invoice information generated and validated by the application.
 
 
+
+###### **Data Validation and limitations**
+
+
+
+Pydantic validates the structure and types of the extracted information, including required fields, permitted currency values and payment statuses.
+
+
+
+However, structural validation does not independently guarantee that every extracted value is factually correct. AI-generated information should therefore be checked against the original invoice, particularly in financial processing environments.
+
+
+
+The current implementation processes text-based invoice content rather than directly extracting information from PDF or image files.
+
+###### 
+
+###### **Skills Demonstrated**
+
+
+
+Python programming and application development.
+
+
+
+Generative AI and API integration.
+
+
+
+Prompt engineering and parameterized templates.
+
+
+
+Structured data extraction.
+
+
+
+JSON processing and validation.
+
+
+
+Error handling and input management.
+
+
+
+Version control using Git and GitHub.
+
+
+
+###### **Future Improvementsx**
+
+###### 
+
+Potential enhancements include:
+
+
+
+Support for PDF and image-based invoices.
+
+
+
+Batch processing of multiple invoices.
+
+
+
+Improved extraction accuracy and verification.
+
+
+
+Automated invoice classification.
+
+
+
+Database integration for storing extracted records.
+
+
+
+A graphical user interface for easier document processing.
+
+
+
+**Author**
+
+
+
+**Bridget Mothapo**
+
+
+
+**BCom Business Informatics Graduate | BSc Honours in Computing Student**
+
+
+
+**GitHub: @BridgetCMot**
 
