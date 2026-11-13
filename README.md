@@ -328,6 +328,8 @@ python main.py
 
 This screenshot shows the application running successfully and extracting invoice information using Google Gemini.
 
+!\[Application Execution](screenshots/Application%20Execution.png)
+
 
 
 **2. JSON Output**
@@ -335,6 +337,8 @@ This screenshot shows the application running successfully and extracting invoic
 
 
 This screenshot shows the structured invoice information generated and validated by the application.
+
+!\[JSON Output](screenshots/JSON%20Output.png)
 
 
 
